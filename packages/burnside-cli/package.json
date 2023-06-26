@@ -14,13 +14,14 @@
   },
   "main": "src/index.js",
   "scripts": {
-    "prepublish": "echo 'no build step needed'",
+    "prepublish": "npm run snyk-protect && echo 'no build step needed'",
     "tutorial": "node src/cli.js ./src/tutorial.js --disableTimeout",
     "burnside:failures": "./runBurnsideFailureTests.sh ",
     "burnside": "node src/cli.js ./src/index.test.js --startup=./exampleServer.sh --verbose --condition='Startup Complete' --wait=2000 --browsers=chrome,firefox",
     "burnside:watch": "node src/cli.js ./src/index.test.js --watchmode --startup=./exampleServer.sh --verbose --condition='Startup Complete' --wait=2000 --browsers=chrome,firefox",
     "lint": "eslint --color 'src/**/*.js'",
-    "test": "npm run lint && npm run burnside && npm run burnside:failures"
+    "test": "npm run lint && npm run burnside && npm run burnside:failures",
+    "snyk-protect": "snyk-protect"
   },
   "author": "Ben Hammond",
   "license": "ISC",
@@ -34,15 +35,16 @@
     "babel-preset-env": "^1.6.0",
     "bluebird": "^3.5.0",
     "cosmiconfig": "^2.1.3",
-    "karma": "^1.7.0",
+    "karma": "^5.0.8",
     "karma-html-reporter": "^0.2.7",
     "karma-junit-reporter": "^1.2.0",
-    "karma-mocha": "^1.3.0",
+    "karma-mocha": "^2.0.0",
     "karma-mocha-reporter": "^2.2.3",
-    "mocha": "^3.4.2",
+    "mocha": "^10.1.0",
     "ps-tree": "^1.1.0",
     "webpack": "^2.6.1",
-    "yargs": "^8.0.1"
+    "yargs": "^11.1.1",
+    "@snyk/protect": "latest"
   },
   "peerDependencies": {},
   "devDependencies": {
@@ -51,5 +53,6 @@
     "eslint-config-airbnb-es5": "^1.0.9",
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-react": "^6.6.0"
-  }
+  },
+  "snyk": true
 }
