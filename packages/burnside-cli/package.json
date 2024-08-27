@@ -41,7 +41,7 @@
     "karma-mocha-reporter": "^2.2.3",
     "mocha": "^3.4.2",
     "ps-tree": "^1.1.0",
-    "webpack": "^2.6.1",
+    "webpack": "^5.94.0",
     "yargs": "^8.0.1"
   },
   "peerDependencies": {},
